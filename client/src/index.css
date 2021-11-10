@@ -1,0 +1,107 @@
+/* main styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  background-color: gray;
+}
+
+.title {
+  margin: 10px;
+  color: #d3bc8d;
+  font-size: 20px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.navlinks {
+  margin-right: 10px;
+  width: fit-content;
+  background-color: #d3bc8d;
+  padding: 10px;
+  border-radius: 20%;
+  text-decoration: none;
+  border: 2px solid #101820;
+  color: black;
+}
+
+.navlinks:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+/* home page */
+
+.hometitle {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.thirsty {
+  color: black;
+  background-color: #d3bc8d;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.thirsty:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+.buttondiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* posts page */
+
+.postsmain {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+.allposts {
+  border: 2px solid black;
+  border-radius: 8px;
+  padding-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #d3bc8d;
+  color: black;
+}
+
+.allposts:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+.posttitle {
+  padding-top: 10px;
+}
+
+.postauthor {
+  padding-bottom: 10px;
+}
+
+/* not found pages */
+
+.notfound {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}

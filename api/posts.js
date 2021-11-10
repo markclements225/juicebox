@@ -77,6 +77,20 @@ postsRouter.get("/", async (req, res) => {
   }
 });
 
+postsRouter.get("/:postId", async (req, res, next) => {
+  const { postId } = req.params;
+
+  try {
+    const requestedPost = await getPostById(postId);
+
+    res.send({
+      posts: requestedPost,
+    });
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
+
 postsRouter.delete("/:postId", requireUser, async (req, res, next) => {
   try {
     const post = await getPostById(req.params.postId);
