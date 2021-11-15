@@ -2,6 +2,7 @@ const express = require("express");
 const usersRouter = express.Router();
 const { getAllUsers, getUserByUsername, createUser } = require("../db");
 const jwt = require("jsonwebtoken");
+const { requireUser } = require("./utils");
 
 usersRouter.use((req, res, next) => {
   console.log("A request is being made to /users");
@@ -89,6 +90,13 @@ usersRouter.post("/register", async (req, res, next) => {
   } catch ({ name, message }) {
     next({ name, message });
   }
+});
+
+usersRouter.get("/authenticate", requireUser, (req, res, next) => {
+  res.send({
+    success: true,
+    user: req.user,
+  });
 });
 
 module.exports = usersRouter;

@@ -1,7 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
+  const handleClick = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+  };
+
   return (
     <nav className="navbar">
       <h1 className="title">Juicebox</h1>
@@ -12,15 +17,25 @@ const NavBar = () => {
         <Link to="/posts" className="navlinks">
           Juicy Posts
         </Link>
-        <Link to="/register" className="navlinks">
-          Create Post
-        </Link>
-        <Link to="/login" className="navlinks">
-          Login
-        </Link>
-        <Link to="/register" className="navlinks">
-          Register
-        </Link>
+        {isLoggedIn ? (
+          <>
+            <Link to="/create" className="navlinks">
+              Create Post
+            </Link>
+            <Link to="/login" className="navlinks" onClick={handleClick}>
+              Logout
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="navlinks">
+              Login
+            </Link>
+            <Link to="/register" className="navlinks">
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
